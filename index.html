@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d1117">
+  <title>Scramble Lab - Speedcube Competition Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Scramble Lab home">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span>
+        <strong>SCRAMBLE LAB</strong>
+        <small>2×2 + 3×3 COMPETITION PRACTICE</small>
+      </span>
+    </a>
+    <div class="header-actions">
+      <span class="status-dot"><i></i> PRACTICE MODE</span>
+      <button class="icon-button" id="themeButton" aria-label="Toggle high contrast">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="app-shell">
+      <div class="hero-copy">
+        <p class="eyebrow" id="sessionLabel">SESSION 01 / 3×3</p>
+        <h1>TRAIN THE<br><em>SCRAMBLE.</em></h1>
+        <p>Competition-length scrambles, deliberate execution, and zero guesswork. Follow each move and verify your cube before solving.</p>
+        <div class="hero-meta">
+          <span><b id="scrambleLength">20</b> MOVES</span>
+          <span><b>WCA</b> NOTATION</span>
+          <span><b>STEP</b> VERIFY</span>
+        </div>
+        <div class="puzzle-picker" aria-label="Puzzle selector">
+          <button class="puzzle-option is-active" id="puzzle3Button" type="button">3×3</button>
+          <button class="puzzle-option" id="puzzle2Button" type="button">2×2</button>
+        </div>
+      </div>
+
+      <div class="scramble-card">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">CURRENT SCRAMBLE</p>
+            <h2 id="scrambleTitle">READY TO SCRAMBLE</h2>
+          </div>
+          <button class="secondary-button" id="copyButton">COPY</button>
+        </div>
+        <div class="scramble-sequence" id="scrambleSequence" aria-live="polite"></div>
+        <div class="scramble-actions">
+          <button class="primary-button" id="newScrambleButton"><span>NEW SCRAMBLE</span><b>↗</b></button>
+          <button class="secondary-button" id="resetButton">RESET POSITION</button>
+        </div>
+        <p class="disclaimer" id="scrambleDisclaimer">Competition-practice sequence. Official WCA events use TNoodle random-state scrambles.</p>
+      </div>
+
+      <article class="panel cube-panel">
+        <div class="panel-title">
+          <div>
+            <p class="eyebrow">STEP VERIFICATION</p>
+            <h2>FOLLOW THE CUBE</h2>
+          </div>
+          <span class="move-counter"><b id="currentStep">0</b> / <span id="totalSteps">20</span></span>
+        </div>
+
+        <div class="next-move-wrap">
+          <span>NEXT MOVE</span>
+          <strong id="nextMove">—</strong>
+          <p id="moveDescription">Generate a scramble to begin.</p>
+        </div>
+
+        <div class="cube-stage">
+          <div class="cube-net" id="cubeNet" aria-label="Current cube state"></div>
+        </div>
+
+        <div class="step-controls">
+          <button class="secondary-button control-button" id="previousButton">← PREVIOUS</button>
+          <button class="primary-button control-button" id="nextButton">APPLY MOVE →</button>
+          <button class="secondary-button control-button" id="showFinalButton">SHOW FINAL STATE</button>
+        </div>
+        <input type="range" id="stepSlider" min="0" max="20" value="0" aria-label="Scramble step">
+        <div class="slider-labels"><span>SOLVED</span><span>SCRAMBLED</span></div>
+      </article>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
