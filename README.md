@@ -1,32 +1,71 @@
-# Scramble Lab
+# Rubic's Cube Scramble Trainer
 
-A dependency-free 2x2 and 3x3 speedcubing practice app with:
+A focused browser-based trainer for practicing 2×2 and 3×3 cube scrambles.
 
-- competition-length practice scramble sequences using standard WCA move notation
-- a faithful cube-state engine and step-by-step scramble verification
-- forward, backward, and slider-based move navigation
-- a one-click final-state view for checking the completed scramble
+## Features
 
-Open `index.html` directly, or run a local server:
+- Switch between 2×2 and 3×3 practice modes.
+- Generate competition-length practice scrambles with standard WCA notation.
+- Follow every move on a color-accurate cube net.
+- Move forward or backward one step at a time, or jump with the progress slider.
+- Show the completed scramble state instantly for verification.
+- Copy a scramble, reset the cube, or generate a new sequence in one click.
+- Use the responsive interface on desktop or mobile without a backend.
+
+> **Note:** Rubic's Cube Scramble Trainer generates constrained practice sequences. Official WCA
+> competitions use approved random-state scramble software such as TNoodle.
+
+## Preview
+
+![Rubic's Cube Scramble Trainer desktop preview](assets/scramble-trainer-preview.png)
+
+## Use This Repository
+
+### Open it directly
+
+Clone the repository and open `docs/index.html` in a browser:
 
 ```sh
-python3 -m http.server 8000
+git clone https://github.com/akhil0309/scramble_trainer.git
+cd scramble_trainer
+open docs/index.html
 ```
 
-Then visit `http://localhost:8000`.
+On Windows or Linux, open `docs/index.html` from your file manager instead of
+using the `open` command.
 
-## GitHub Pages
+### Run a local web server
 
-The checked-in `docs/` directory contains the final browser-ready build. In the
-repository settings, enable GitHub Pages from the `main` branch and `/docs`
-folder. The site will then be available at the repository's GitHub Pages URL.
+For a normal local URL, serve the checked-in browser build:
 
-Regenerate both the Sites worker and GitHub Pages output with:
+```sh
+python3 -m http.server 8000 --directory docs
+```
+
+Then visit [http://localhost:8000](http://localhost:8000).
+
+### Publish a fork with GitHub Pages
+
+1. Fork this repository.
+2. Open the fork's **Settings → Pages**.
+3. Choose **Deploy from a branch**.
+4. Select the `main` branch and `/docs` folder.
+5. Save and wait for GitHub to provide the Pages URL.
+
+### Regenerate the build
+
+Node.js 20 or newer is required only when regenerating build artifacts:
 
 ```sh
 npm run build
 ```
 
-Official WCA competitions use random-state scrambles. Scramble Lab generates
-constrained competition-practice move sequences and does not claim official
-scramble certification.
+This refreshes the GitHub Pages output in `docs/` and the Sites worker package
+in `dist/`. The app itself has no runtime dependencies.
+
+## Project Files
+
+- `index.html`, `styles.css`, `app.js` — application source.
+- `docs/` — final browser-ready output committed for GitHub Pages.
+- `scripts/build-sites.mjs` — reproducible build script.
+- `dist/` — generated Sites worker output, excluded from Git.
